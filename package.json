@@ -17,7 +17,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/picahq/pipesync"
+    "url": "https://github.com/withoneai/pipesync"
   },
   "homepage": "https://pipesync.sh",
   "type": "module",
