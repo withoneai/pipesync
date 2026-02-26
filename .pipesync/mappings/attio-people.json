@@ -1,0 +1,48 @@
+{
+  "name": "attio-people",
+  "platform": "attio",
+  "connectionKey": "live::attio::default::0dd1914b98aa447aa393aeb0a917f2e7",
+  "actionId": "conn_mod_def::F-w9FsotI2A::Cz-SnQJoRACLaltjbzgQeA",
+  "request": {
+    "method": "POST",
+    "path": "/objects/people/records/query",
+    "body": {
+      "limit": 500
+    }
+  },
+  "pagination": {
+    "type": "offset",
+    "requestParam": "offset",
+    "itemsField": "data",
+    "pageSize": 500
+  },
+  "record": {
+    "type": "person",
+    "mapping": {
+      "name": "values.name.0.full_name",
+      "first_name": "values.name.0.first_name",
+      "last_name": "values.name.0.last_name",
+      "email": "values.email_addresses.0.email_address",
+      "description": "values.description.0.value",
+      "job_title": "values.job_title.0.value",
+      "linkedin": "values.linkedin.0.value",
+      "twitter": "values.twitter.0.value",
+      "location": "values.primary_location.0.locality",
+      "country": "values.primary_location.0.country_code",
+      "avatar_url": "values.avatar_url.0.value",
+      "attio_url": "web_url"
+    },
+    "keys": [
+      "values.email_addresses.0.email_address"
+    ],
+    "tags": [
+      "attio",
+      "contact"
+    ]
+  },
+  "externalRef": {
+    "system": "attio",
+    "idField": "id.record_id",
+    "urlTemplate": "https://app.attio.com/integrationos-1/person/{id.record_id}"
+  }
+}

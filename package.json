@@ -37,6 +37,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
+    "@withone/pipesync": "^0.1.1",
     "commander": "^12.1.0",
     "picocolors": "^1.1.1"
   },
@@ -49,8 +50,8 @@
     }
   },
   "devDependencies": {
-    "@withone/mem": "^0.2.1",
     "@types/node": "^22.10.5",
+    "@withone/mem": "^0.2.1",
     "typescript": "^5.7.2"
   },
   "engines": {

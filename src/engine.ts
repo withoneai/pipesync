@@ -72,6 +72,17 @@ export async function pull(
       // Apply pagination cursor
       queryParams = applyCursor(queryParams, mapping.pagination, cursor, offset);
 
+      // For POST requests, merge pagination params into the body
+      let body = mapping.request.body ? { ...mapping.request.body } : undefined;
+      if (body && mapping.request.method === "POST" && mapping.pagination.requestParam) {
+        const paginationValue = queryParams[mapping.pagination.requestParam];
+        if (paginationValue !== undefined) {
+          body[mapping.pagination.requestParam] = paginationValue;
+          // Remove from queryParams since it's going in the body
+          delete queryParams[mapping.pagination.requestParam];
+        }
+      }
+
       if (verbose) {
         console.log(`  Fetching page (offset=${offset})...`);
       }
@@ -96,7 +107,7 @@ export async function pull(
           method: mapping.request.method,
           path: mapping.request.path,
           queryParams,
-          body: mapping.request.body,
+          body,
           headers: mapping.request.headers,
         });
       }

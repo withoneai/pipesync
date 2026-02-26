@@ -78,11 +78,11 @@ export async function picaRequest(options: PicaRequestOptions): Promise<PicaResp
   });
 
   let data: unknown;
-  const contentType = response.headers.get("content-type") || "";
-  if (contentType.includes("application/json")) {
-    data = await response.json();
-  } else {
-    data = await response.text();
+  const text = await response.text();
+  try {
+    data = JSON.parse(text);
+  } catch {
+    data = text;
   }
 
   if (!response.ok) {
@@ -122,11 +122,11 @@ export async function picaRequestUrl(
   });
 
   let data: unknown;
-  const contentType = response.headers.get("content-type") || "";
-  if (contentType.includes("application/json")) {
-    data = await response.json();
-  } else {
-    data = await response.text();
+  const text = await response.text();
+  try {
+    data = JSON.parse(text);
+  } catch {
+    data = text;
   }
 
   if (!response.ok) {
