@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.pipesync/state/
+.pipesync/config.json
+.env

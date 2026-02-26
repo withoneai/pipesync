@@ -1,0 +1,62 @@
+{
+  "name": "pipesync",
+  "version": "0.1.0",
+  "description": "Dynamic data sync engine for Pica-connected platforms. Pull data from any API into any destination.",
+  "keywords": [
+    "pica",
+    "sync",
+    "data",
+    "integrations",
+    "api",
+    "etl",
+    "ai",
+    "agents",
+    "pipesync"
+  ],
+  "author": "Pica <hello@picaos.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/picahq/pipesync"
+  },
+  "homepage": "https://pipesync.sh",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "pipesync": "./bin/pipesync"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "skills"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "picocolors": "^1.1.1"
+  },
+  "peerDependencies": {
+    "@withone/mem": ">=0.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@withone/mem": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@withone/mem": "^0.2.1",
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
